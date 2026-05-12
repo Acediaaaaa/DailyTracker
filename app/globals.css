@@ -1,38 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0c;
+  --background: #060608;
   --foreground: #e2e8f0;
-  --accent: #06b6d4; /* Cyan neon */
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  /* Techy Grid Background */
+  /* Techy Grid - Fades out on edges */
   background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
   min-height: 100vh;
   font-family: var(--font-geist-mono), monospace;
 }
 
 @utility glass-panel {
-  @apply bg-slate-900/40 backdrop-blur-md border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.5)];
-}
-
-@utility neon-border {
-  @apply border-cyan-500/50 shadow-[0_0_10px_rgba(6,182,212,0.3)];
+  @apply bg-slate-950/60 backdrop-blur-xl border border-white/5 shadow-2xl;
 }
 
 @utility tech-input {
-  @apply bg-black/40 border border-slate-700 rounded-lg px-4 py-2 
-         text-cyan-400 placeholder:text-slate-600 focus:outline-none 
-         focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 transition-all;
+  @apply bg-black/60 border border-slate-800 rounded-md px-4 py-3 
+         text-cyan-400 placeholder:text-slate-700 focus:outline-none 
+         focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/30 transition-all
+         appearance-none; /* Fixes mobile shadow issues */
 }
 
 @utility tech-button {
-  @apply bg-cyan-600 hover:bg-cyan-500 text-black font-bold px-6 py-2 
-         rounded-lg transition-all active:scale-95 uppercase tracking-wider text-xs;
+  @apply bg-cyan-700 hover:bg-cyan-600 text-black font-black px-6 
+         rounded-md transition-all active:scale-95 uppercase tracking-tighter text-sm;
+}
+
+/* Custom selection color */
+::selection {
+  background: rgba(6, 182, 212, 0.3);
+  color: white;
 }

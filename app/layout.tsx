@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DailyTracker | Minimalist Task Management",
+  title: "Task Tracker",
   description: "A professional real-time task tracker built with Next.js and Supabase",
 };
 
