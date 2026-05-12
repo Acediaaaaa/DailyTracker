@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Task Tracker",
-  description: "A professional real-time task tracker built with Next.js and Supabase",
+  title: "Task_Terminal",
+  description: "Secure real-time task management // Sector_07",
+  manifest: "/site.webmanifest", // This links your manifest file
+  themeColor: "#0a0a0c",         // Matches your techy background
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
 
 export default function RootLayout({
