@@ -1,26 +1,46 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 15, 23, 42; /* Slate 900 */
+  --background-start-rgb: 248, 250, 252; /* Slate 50 */
+  --background-end-rgb: 241, 245, 249; /* Slate 100 */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth transitions for interactive elements */
+@layer components {
+  .btn-primary {
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg 
+           font-medium transition-all duration-200 shadow-sm active:scale-95;
+  }
+
+  .input-field {
+    @apply flex-1 px-4 py-2 rounded-lg border border-slate-200 
+           focus:outline-none focus:ring-2 focus:ring-indigo-500/20 
+           focus:border-indigo-500 transition-all text-slate-700 bg-white;
+  }
+}
+
+/* Custom Checkbox Styling */
+input[type="checkbox"] {
+  @apply cursor-pointer transition-all duration-200;
+}
+
+/* Hide scrollbar for cleaner UI if needed */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
